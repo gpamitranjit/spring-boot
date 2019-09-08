@@ -1,24 +1,24 @@
 package com.amit.app.models;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.lang.Nullable;
 
-@Entity
-@Table(name = "address")
+@Embeddable
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "id", length = 5)
-	@NotNull(message = "id of the address can't be null!")
+//	@NotNull(message = "id of the address can't be null!")
 	private String id;
 	
 	@NotNull(message = "street address can't be null!")
@@ -32,6 +32,14 @@ public class Address {
 	@Nullable
 	private String addressLine2;
 	
+//	@NotNull
+	@ManyToOne
+	private User user;
+	
+	public Address() {
+		super();
+	}
+
 	public Address(String id, String street, String addressLine1) {
 		super();
 		this.id = id;

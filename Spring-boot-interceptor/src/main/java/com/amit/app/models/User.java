@@ -1,6 +1,9 @@
 package com.amit.app.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,24 +16,25 @@ import javax.validation.constraints.NotNull;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", length = 5)
 	private String id;
 
 	@NotNull(message = "firstName can't be empty!")
 	private String firstName;
-	
+
 	@NotNull(message = "lastName can't be empty!")
 	private String lastName;
-	
-	@NotNull(message = "address can't be empty!")
-	private Address address;
-	
+
+//	@NotNull(message = "address can't be empty!")
+	@Embedded
+	private List<Address> address;
+
 	public User() {
 		super();
 	}
 
-	public User(String id, String firstName, String lastName, Address address) {
+	public User(String id, String firstName, String lastName, List<Address> address) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -62,11 +66,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Address getAddress() {
+	public List<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 
@@ -74,5 +78,5 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";
 	}
-	
+
 }
