@@ -6,6 +6,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.amit.app.interceptors.LoginInterceptor;
 
+/**
+*
+* @author Amit Patil
+*
+**/
 @Configuration
 public class AppWebMvcConfig implements WebMvcConfigurer {
 

@@ -19,6 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+/**
+*
+* @author Amit Patil
+*
+**/
 @Configuration
 @EnableTransactionManagement
 public class AppPersistenceConfiguration {
