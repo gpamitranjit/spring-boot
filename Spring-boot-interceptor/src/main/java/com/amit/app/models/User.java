@@ -2,32 +2,41 @@ package com.amit.app.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", length = 5)
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@Column(name = "id")
 	private String id;
 
-	@NotNull(message = "firstName can't be empty!")
+	@NotNull(message = "firstName can't be null!")
+	@NotEmpty(message = "firstName can't be empty!")
 	private String firstName;
 
-	@NotNull(message = "lastName can't be empty!")
+	@NotNull(message = "lastName can't be null!")
+	@NotEmpty(message = "lastName can't be empty!")
 	private String lastName;
 
 //	@NotNull(message = "address can't be empty!")
-	@Embedded
+	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
 	private List<Address> address;
 
 	public User() {

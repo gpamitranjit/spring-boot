@@ -1,24 +1,31 @@
 package com.amit.app.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.lang.Nullable;
 
-@Embeddable
+@Entity
+@Table(name = "Address")
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	@Column(name = "id", length = 5)
-//	@NotNull(message = "id of the address can't be null!")
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@Column(name = "id")
+	@NotNull(message = "id of the address can't be null!")
 	private String id;
 	
 	@NotNull(message = "street address can't be null!")
@@ -33,7 +40,7 @@ public class Address {
 	private String addressLine2;
 	
 //	@NotNull
-	@ManyToOne
+	@ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
 	private User user;
 	
 	public Address() {

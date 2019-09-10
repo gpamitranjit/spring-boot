@@ -8,10 +8,10 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 @NoRepositoryBean
-public interface UserBaseRespository<T, ID extends Serializable> extends Repository<T, ID> {
+public interface AddressBaseRepository<T, ID extends Serializable> extends Repository<T, ID> {
 
-	@Query(value = "SELECT u FROM User u where u.id = :userId")
-	public T getEntityById(@Param("userId") String userId);
+	@Query(value = "SELECT a FROM Address a where a.id = :addressId")
+	public T getEntityById(@Param("addressId") ID id);
 	
 	public T save(T object);
 }
