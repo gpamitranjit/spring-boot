@@ -1,0 +1,106 @@
+{
+	"id": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
+	"name": "Spring-boot-interceptor",
+	"description": "How to register interceptor in spring boot application",
+	"order": [
+		"ae6d6bda-e239-73b1-3a67-e890e37ca8f3",
+		"57de681b-4730-4141-d2f2-a131655281a6",
+		"959f9ae8-cf29-e720-9e63-239445a44c0a"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1567955818297,
+	"owner": "2037757",
+	"public": false,
+	"requests": [
+		{
+			"id": "57de681b-4730-4141-d2f2-a131655281a6",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user/{userId}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
+			"data": null,
+			"dataMode": "params",
+			"name": "Fetch user details",
+			"description": "Fetch user details based on user id",
+			"descriptionFormat": "html",
+			"time": 1568143703604,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "959f9ae8-cf29-e720-9e63-239445a44c0a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/address/{addressId}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1568145105891,
+			"name": "Fetch address details",
+			"description": "Fetch address details based on address id",
+			"collectionId": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
+			"responses": []
+		},
+		{
+			"id": "ae6d6bda-e239-73b1-3a67-e890e37ca8f3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create User with address details",
+			"description": "Create the user with address details attached",
+			"descriptionFormat": "html",
+			"time": 1568143415332,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"id\": \"12345\",\n\t\n\t\"lastName\": \"PatilA\",\n\t\"address\": [{\n\t\t\"id\": \"12345\",\n\t\t\"street\": \"some dummy street\",\n\t\t\"addressLine1\": \"some dummy address line 1\",\n\t\t\"addressLine2\": \"some dummy address line 2\"\n\t}]\n}"
+		}
+	]
+}
