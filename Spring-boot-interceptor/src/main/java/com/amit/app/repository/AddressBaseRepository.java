@@ -7,6 +7,11 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
+/**
+*
+* @author Amit Patil
+*
+**/
 @NoRepositoryBean
 public interface AddressBaseRepository<T, ID extends Serializable> extends Repository<T, ID> {
 

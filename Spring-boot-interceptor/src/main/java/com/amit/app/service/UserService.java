@@ -9,6 +9,11 @@ import com.amit.app.models.User;
 import com.amit.app.repository.AddressRepository;
 import com.amit.app.repository.UserRepository;
 
+/**
+*
+* @author Amit Patil
+*
+**/
 @Service
 @Transactional(readOnly = true)
 public class UserService {

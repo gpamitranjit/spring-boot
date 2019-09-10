@@ -17,6 +17,11 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.lang.Nullable;
 
+/**
+*
+* @author Amit Patil
+*
+**/
 @Entity
 @Table(name = "Address")
 public class Address {

@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.amit.app.models.Address;
 import com.amit.app.models.User;
 import com.amit.app.service.UserService;
-
+/**
+*
+* @author Amit Patil
+*
+**/
 @RestController
 @RequestMapping("/v1")
 public class AppController {
