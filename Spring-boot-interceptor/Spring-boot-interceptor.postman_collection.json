@@ -84,23 +84,22 @@
 			],
 			"url": "localhost:8080/v1/user",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
 			"data": [],
 			"dataMode": "raw",
-			"name": "Create User with address details",
-			"description": "Create the user with address details attached",
-			"descriptionFormat": "html",
-			"time": 1568143415332,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"id\": \"12345\",\n\t\n\t\"lastName\": \"PatilA\",\n\t\"address\": [{\n\t\t\"id\": \"12345\",\n\t\t\"street\": \"some dummy street\",\n\t\t\"addressLine1\": \"some dummy address line 1\",\n\t\t\"addressLine2\": \"some dummy address line 2\"\n\t}]\n}"
+			"time": 1568220879700,
+			"name": "Create User with address details",
+			"description": "Create the user with address details attached",
+			"collectionId": "fb55a7a7-ba6c-5e1e-9beb-6af4aff2f0c9",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\": \"12345\",\n\t\"firstName\": \"AmitT\",\n\t\"lastName\": \"PatilA\",\n\t\"address\": [{\n\t\t\"id\": \"12345\",\n\t\t\"street\": \"some dummy street\",\n\t\t\"addressLine1\": \"some dummy address line 1\",\n\t\t\"addressLine2\": \"some dummy address line 2\"\n\t}]\n}"
 		}
 	]
 }
