@@ -1,4 +1,4 @@
-package com.amit.app.controllers;
+package com.amit.app.config;
 
 import java.util.Properties;
 
