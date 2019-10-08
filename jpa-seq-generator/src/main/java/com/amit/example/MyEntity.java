@@ -1,4 +1,4 @@
-package com.logicbig.example;
+package com.amit.example;
 
 import javax.persistence.*;
 
