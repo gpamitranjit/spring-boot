@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.amit.app.models.Address;
 import com.amit.app.models.User;
-import com.amit.app.service.UserService;
+import com.amit.app.service.FirstUserService;
 /**
 *
 * @author Amit Patil
@@ -22,21 +22,21 @@ import com.amit.app.service.UserService;
 public class AppController {
 
 	@Autowired
-	private UserService userService;
+	private FirstUserService firstUserService;
 	
 	@RequestMapping(value = "/user/{userId}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public User getUserDetails(@PathVariable("userId") String id) {
-		return userService.getUserById(id);
+		return firstUserService.getUserById(id);
 	}
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public User saveUserDetails(@RequestBody @Validated User user) {
 		
-		return userService.saveUserDetails(user);
+		return firstUserService.saveUserDetails(user);
 	}
 	
 	@RequestMapping(value = "/address/{addressId}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Address getAddressDetails(@PathVariable("addressId") String id) {
-		return userService.getAddressById(id);
+		return firstUserService.getAddressById(id);
 	}
 }

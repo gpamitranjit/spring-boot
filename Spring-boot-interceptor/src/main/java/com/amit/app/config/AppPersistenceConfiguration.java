@@ -6,6 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -25,7 +26,7 @@ import com.zaxxer.hikari.HikariDataSource;
 *
 **/
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 public class AppPersistenceConfiguration {
 
     private static final String PROPERTY_NAME_DB_DRIVER_CLASS = "db.driver";

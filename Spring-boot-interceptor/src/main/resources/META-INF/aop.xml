@@ -1,0 +1,15 @@
+<aspectj>
+	<weaver>
+
+		<include within="com.amit.app..*" />
+
+	</weaver>
+
+	<aspects>
+
+		<!-- weave in just this aspect -->
+		<aspect name="com.amit.app.aspect.AppAspect" />
+
+	</aspects>
+
+</aspectj>
