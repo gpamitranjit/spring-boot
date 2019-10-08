@@ -8,7 +8,7 @@
 
     <persistence-unit name="test-unit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-         <class>com.logicbig.example.MyEntity</class>
+         <class>com.amit.example.MyEntity</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
