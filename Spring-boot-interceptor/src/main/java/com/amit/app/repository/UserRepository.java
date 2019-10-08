@@ -10,6 +10,6 @@ import com.amit.app.models.User;
 *
 **/
 @Repository
-public interface UserRepository	 extends UserBaseRespository<User, String> {
+public interface UserRepository extends UserBaseRespository<User, String> {
 	
 }
