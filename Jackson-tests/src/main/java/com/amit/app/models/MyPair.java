@@ -23,6 +23,15 @@ public class MyPair {
 		this.second = second;
 	}
 
+	
+	
+	public MyPair(String both) {
+		super();
+		String[] pairs = both.split("and");
+		this.first = pairs[0].trim();
+		this.second = pairs[1].trim();
+	}
+
 	public String getFirst() {
 		return first;
 	}
