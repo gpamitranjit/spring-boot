@@ -23,7 +23,7 @@ hs_err_pid*
 
 
 #Maven auto generated files
-/.classpath
-/.project
-/.settings/
-/target/
+**/.classpath
+**/.project
+**/.settings/
+**/target/
