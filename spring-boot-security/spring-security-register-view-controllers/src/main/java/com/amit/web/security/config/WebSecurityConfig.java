@@ -1,5 +1,7 @@
 package com.amit.web.security.config;
 
+import java.util.function.Function;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,9 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	@Override
 	protected UserDetailsService userDetailsService() {
-		UserDetails user = User.withUsername("amit").passwordEncoder((pass) -> {
-			return PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(pass);
-		})
+		Function<String, String> encoder = (password) -> {
+			return PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(password);
+		};
+		UserDetails user = User.withUsername("amit").passwordEncoder(encoder )
 			.password("123")
 			.roles("ADMIN")
 			.build();
