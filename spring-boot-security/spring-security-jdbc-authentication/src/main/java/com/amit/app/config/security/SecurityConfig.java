@@ -42,12 +42,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
 			.authorizeRequests()
-			.antMatchers("/**").permitAll();
-//			.antMatchers("/h2-console/**").permitAll()
-//			.and()
-//			.authorizeRequests()
-//				.anyRequest().authenticated();
-		
+			.antMatchers("/console**", "/h2-console/**").permitAll()
+			.and()
+			.authorizeRequests()
+				.anyRequest()
+				.authenticated()
+			.and()
+			.formLogin()
+			.and()
+			.csrf().disable()
+			.headers().frameOptions().disable();
 	}
 	
 	private UserBuilder userBuilder() {
