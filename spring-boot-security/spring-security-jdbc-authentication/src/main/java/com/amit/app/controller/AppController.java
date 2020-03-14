@@ -3,6 +3,8 @@ package com.amit.app.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +28,16 @@ public class AppController {
 		return myService.greeting(user);
 	}
 	
-	@RequestMapping("/current/user")
+	@RequestMapping("/current/principal")
 	public Principal getPrincipal(Principal principal) {
 		return principal;
+	}
+
+//	Below endpoint also return the Principal which is represented by User in spring
+//	the User principal doesn't contain the WebAuthenticalDetails object which includes
+//	details like  remote-address, sessionId
+	@RequestMapping("/current/user")
+	public User getUser(@AuthenticationPrincipal User user) {
+		return user;
 	}
 }
