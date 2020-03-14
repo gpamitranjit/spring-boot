@@ -1,5 +1,7 @@
 package com.amit.app.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +24,10 @@ public class AppController {
 	@RequestMapping("/greeting/{user}")
 	public String greeting(@PathVariable String user) {
 		return myService.greeting(user);
+	}
+	
+	@RequestMapping("/current/user")
+	public Principal getPrincipal(Principal principal) {
+		return principal;
 	}
 }

@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.withDefaultSchema()
 			.withUser(userBuilder().username("amit").password("123").authorities("ROLE_USER"))
 			.and()
-			.eraseCredentials(true);
+			.eraseCredentials(false);
 	}
 
 	@Override
