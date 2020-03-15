@@ -3,6 +3,7 @@ package com.amit.app.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,11 +24,6 @@ public class AppController {
 	@Autowired
 	private MyService myService;
 	
-	@RequestMapping("/greeting/{user}")
-	public String greeting(@PathVariable String user) {
-		return myService.greeting(user);
-	}
-	
 	@RequestMapping("/current/principal")
 	public Principal getPrincipal(Principal principal) {
 		return principal;
@@ -39,5 +35,20 @@ public class AppController {
 	@RequestMapping("/current/user")
 	public User getUser(@AuthenticationPrincipal User user) {
 		return user;
+	}
+	
+	@RequestMapping("/greeting/user")
+	public String getUserGreeting(@AuthenticationPrincipal User user) {
+		return myService.greeting(user.getUsername());
+	}
+
+	@RequestMapping("/greeting/admin")
+	public String getAdminGreeting(@AuthenticationPrincipal User admin) {
+		return myService.greeting(admin.getUsername());
+	}
+	
+	@RequestMapping("/greeting/superadmin")
+	public String getSuperAdminGreeting(@AuthenticationPrincipal User superAdmin) {
+		return myService.greeting(superAdmin.getUsername());
 	}
 }
