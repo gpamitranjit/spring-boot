@@ -1,0 +1,81 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Spring-security",
+		"_postman_id": "0b1796ab-e538-1e12-82f5-f246f8157737",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "jdbc-authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "Store Product",
+					"request": {
+						"url": "localhost:8080/v1/product",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlcjoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Titan watch\",\n\t\"quantity\": \"2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all products",
+					"request": {
+						"url": "localhost:8080/v1/products",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlcjoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve single product using product-id",
+					"request": {
+						"url": "localhost:8080/v1/product/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
