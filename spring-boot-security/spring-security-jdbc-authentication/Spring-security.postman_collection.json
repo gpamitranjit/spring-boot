@@ -76,6 +76,63 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Access control",
+			"description": "",
+			"item": [
+				{
+					"name": "Can access user with role USER, ADMIN, SUPER_ADMIN",
+					"request": {
+						"url": "localhost:8080/v1/greeting/user",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlcjoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "try accessing admin content/resources by replacing below URL, application will prohebit you from accessing the admin content/resources\nlocalhost:8080/v1/greeting/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Can access user with role  ADMIN, SUPER_ADMIN",
+					"request": {
+						"url": "localhost:8080/v1/greeting/admin",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46MTIz",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "try accessing superadmin content/resources by replacing below URL, application will prohebit you from accessing the superadmin content/resources\nlocalhost:8080/v1/greeting/superadmin"
+					},
+					"response": []
+				},
+				{
+					"name": "Can access only user with role SUPER_ADMIN",
+					"request": {
+						"url": "localhost:8080/v1/greeting/superadmin",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3VwZXJhZG1pbjoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "No user other than the user with role \"SUPER_ADMIN\" can access the /superadmin resouces/content!\n\nNOTE: Since you have been authenticated as super-admin so ideally you should be able to access normal user's resources so you should now be able to access /user & /admin resources"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
