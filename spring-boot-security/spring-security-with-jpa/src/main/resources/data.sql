@@ -1,0 +1,2 @@
+INSERT INTO MY_USER(id, username, password, authorities, enabled) VALUES(1, 'amit', '123', 'ROLE_USER', true);
+INSERT INTO MY_USER(id, username, password, authorities, enabled) VALUES(2, 'ranjit', '234', 'ROLE_USER', true);
