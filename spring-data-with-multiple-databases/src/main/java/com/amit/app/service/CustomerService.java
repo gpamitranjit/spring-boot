@@ -34,7 +34,7 @@ public class CustomerService {
 	public Customer findCustomerById(Long customerId) {
 		Optional<Customer> customer = customerRepository.findById(customerId);
 
-		if(customer.isEmpty())
+		if(!customer.isPresent())
 			throw new EntityNotFoundException("Customer with id: " + customerId + " doesn't exist!");
 		
 		return customer.get();

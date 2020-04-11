@@ -40,7 +40,7 @@ public class OrderService {
 	public Order findOrderById(Long orderId) {
 		Optional<Order> order = orderRepository.findById(orderId);
 		
-		if(order.isEmpty())
+		if(!order.isPresent())
 			throw new EntityNotFoundException("Order with id: " + orderId + " doesn't exist!");
 		
 		return order.get();
