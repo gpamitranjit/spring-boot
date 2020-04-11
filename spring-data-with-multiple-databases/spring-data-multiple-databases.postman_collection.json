@@ -1,0 +1,95 @@
+{
+	"variables": [],
+	"info": {
+		"name": "spring-data-multiple-databases",
+		"_postman_id": "dce54cca-fe1b-d608-9796-29726bdc1e95",
+		"description": "spring-data-jpa with multiple databases configured\n1 database configured to store customer details\nanother 1 database configured to store order details",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post customer",
+			"request": {
+				"url": "localhost:8080/v1/customer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"Amit\",\n\t\"lastName\" : \"Patil\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "post order",
+			"request": {
+				"url": "localhost:8080/v1/order",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customerId\": \"1\",\n\t\"orderDetails\": \"some order details\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get customer by customerId",
+			"request": {
+				"url": "localhost:8080/v1/customer/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get order by orderId",
+			"request": {
+				"url": "localhost:8080/v1/order/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All customers",
+			"request": {
+				"url": "localhost:8080/v1/customers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All orders",
+			"request": {
+				"url": "localhost:8080/v1/orders",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
