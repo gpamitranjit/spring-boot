@@ -18,7 +18,7 @@
 			},
 			"response": [
 				{
-					"id": "cfa12786-cfa3-4cfc-bfac-3f90ad0cc795",
+					"id": "c625ac6e-6824-4a9e-9bf4-181bbe9e6572",
 					"name": "Retrieve the limits-service configuration",
 					"originalRequest": {
 						"url": "http://localhost:8080/limits-service/configuration",
@@ -79,7 +79,7 @@
 			},
 			"response": [
 				{
-					"id": "1e002011-6e0c-49eb-be11-fb477b3da413",
+					"id": "bed5cbda-edb3-4758-ab8c-9aa672946dcc",
 					"name": "Retrieve centralized microservice configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -128,7 +128,7 @@
 					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"ae48f89739ca0c2f66d2f7878de00cd08432e4fb\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"80\",\"limits-service.maximum\":\"100\"}}]}"
 				},
 				{
-					"id": "67cceebe-e599-484c-a0a5-76fe045cd94b",
+					"id": "a3f81721-b080-4d70-8762-30bf7ed85dbd",
 					"name": "Retrieve centralized microservice configuration after making change in central configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -211,7 +211,7 @@
 			},
 			"response": [
 				{
-					"id": "8a87f98d-e9bc-4fbf-8223-7cf576ca3554",
+					"id": "80dea0b6-94e2-468c-86c6-b89f85bb6fdb",
 					"name": "currency-exchange from USD to INR",
 					"originalRequest": {
 						"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
@@ -291,6 +291,28 @@
 				"header": [],
 				"body": {},
 				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "call currency-exchange-service via zuul-api-gateway, from USD to INR",
+			"request": {
+				"url": "http://localhost:8765/currency-exchange-service/v1/currency-exchange/from/USD/to/INR/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[OpenFeign] call currency-conversion-service via zuul-api-gateway, currency-converter from USD to INR",
+			"request": {
+				"url": "http://localhost:8765/currency-conversion-service/v1/curreny-converter-openfeign/from/USD/to/INR/quantity/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "The curreny-conversion-service talk to the currency-exchange-service via OpenFeign client for getting the conversion factor and then currency-conversion-service calculate the final currency using the conversion factor"
 			},
 			"response": []
 		}
