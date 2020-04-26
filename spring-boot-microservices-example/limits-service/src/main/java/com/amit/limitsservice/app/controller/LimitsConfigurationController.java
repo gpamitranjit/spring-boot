@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amit.limitsservice.app.config.LimitsConfiguration;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
 *
@@ -22,4 +23,15 @@ public class LimitsConfigurationController {
 	public LimitsConfiguration serveServiceConfiguration() {
 		return limitsConfiguration;
 	}
+	
+	@RequestMapping("/limits-service/fault-tolarance-example")
+	@HystrixCommand(fallbackMethod = "fallbackForFaultToleranceConfiguration")
+	public LimitsConfiguration faultToleranceConfiguration() {
+		throw new RuntimeException("Service Not Available");
+	}
+
+	public LimitsConfiguration fallbackForFaultToleranceConfiguration() {
+		return new LimitsConfiguration(2, 222);
+	}
+	
 }

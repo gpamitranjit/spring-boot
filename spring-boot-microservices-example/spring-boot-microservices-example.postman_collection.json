@@ -18,7 +18,7 @@
 			},
 			"response": [
 				{
-					"id": "11515981-9e83-4be1-9140-856228e23fa3",
+					"id": "48864c6a-30ae-47a2-a8a6-efe4047122c3",
 					"name": "Retrieve centralized microservice configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -67,7 +67,7 @@
 					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"ae48f89739ca0c2f66d2f7878de00cd08432e4fb\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"80\",\"limits-service.maximum\":\"100\"}}]}"
 				},
 				{
-					"id": "f3c3ffd9-c87b-4c07-85d0-70546f81ad21",
+					"id": "806ae6dd-06a1-4c5c-b59c-f478b39bb54c",
 					"name": "Retrieve centralized microservice configuration after making change in central configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -150,7 +150,7 @@
 			},
 			"response": [
 				{
-					"id": "e6b726be-b162-47ec-99fd-57d66f3f6abb",
+					"id": "e5894aaf-8ee6-432a-b91e-b9a051b3a36e",
 					"name": "currency-exchange from USD to INR",
 					"originalRequest": {
 						"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
@@ -314,6 +314,28 @@
 			"name": "[limits-service] Refresh all the instances of this service running on diffrent ports",
 			"request": {
 				"url": "localhost:8080/actuator/bus-refresh",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] fault toleranant endpoint",
+			"request": {
+				"url": "http://localhost:8080/v1/limits-service/fault-tolarance-example",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This endpoint internally throws RuntimeException intentionally!\nOnce the RuntimeException is thrown is Hystrix take action to respond with the configured fall-back method"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080 call via zuul gateway] fault tolerant endpoint",
+			"request": {
+				"url": "http://localhost:8765/limits-service/v1/limits-service/fault-tolarance-example",
 				"method": "GET",
 				"header": [],
 				"body": {},
