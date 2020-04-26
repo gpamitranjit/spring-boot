@@ -8,67 +8,6 @@
 	},
 	"item": [
 		{
-			"name": "Retrieve the limits-service configuration",
-			"request": {
-				"url": "http://localhost:8080/v1/limits-service/configuration",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": [
-				{
-					"id": "c625ac6e-6824-4a9e-9bf4-181bbe9e6572",
-					"name": "Retrieve the limits-service configuration",
-					"originalRequest": {
-						"url": "http://localhost:8080/limits-service/configuration",
-						"method": "GET",
-						"header": [],
-						"body": {}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "text",
-					"header": [
-						{
-							"name": "connection",
-							"key": "connection",
-							"value": "keep-alive",
-							"description": "Options that are desired for the connection"
-						},
-						{
-							"name": "content-type",
-							"key": "content-type",
-							"value": "application/json",
-							"description": "The mime type of this content"
-						},
-						{
-							"name": "date",
-							"key": "date",
-							"value": "Sat, 18 Apr 2020 16:11:26 GMT",
-							"description": "The date and time that the message was sent"
-						},
-						{
-							"name": "keep-alive",
-							"key": "keep-alive",
-							"value": "timeout=60",
-							"description": "Custom header"
-						},
-						{
-							"name": "transfer-encoding",
-							"key": "transfer-encoding",
-							"value": "chunked",
-							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-						}
-					],
-					"cookie": [],
-					"responseTime": 89,
-					"body": "{\"minimum\":80,\"maximum\":100}"
-				}
-			]
-		},
-		{
 			"name": "[limits-service default profile] Retrieve centralized microservice configuration of limits-service in default profile",
 			"request": {
 				"url": "localhost:8888/limits-service/default",
@@ -79,7 +18,7 @@
 			},
 			"response": [
 				{
-					"id": "bed5cbda-edb3-4758-ab8c-9aa672946dcc",
+					"id": "11515981-9e83-4be1-9140-856228e23fa3",
 					"name": "Retrieve centralized microservice configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -128,7 +67,7 @@
 					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"ae48f89739ca0c2f66d2f7878de00cd08432e4fb\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"80\",\"limits-service.maximum\":\"100\"}}]}"
 				},
 				{
-					"id": "a3f81721-b080-4d70-8762-30bf7ed85dbd",
+					"id": "f3c3ffd9-c87b-4c07-85d0-70546f81ad21",
 					"name": "Retrieve centralized microservice configuration after making change in central configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -190,7 +129,7 @@
 			"response": []
 		},
 		{
-			"name": "[limits-service qa profile] Retrieve centralized microservice configuration of limits-service in dev  profile",
+			"name": "[limits-service qa profile] Retrieve centralized microservice configuration of limits-service in qa  profile",
 			"request": {
 				"url": "localhost:8888/limits-service/qa",
 				"method": "GET",
@@ -211,7 +150,7 @@
 			},
 			"response": [
 				{
-					"id": "80dea0b6-94e2-468c-86c6-b89f85bb6fdb",
+					"id": "e6b726be-b162-47ec-99fd-57d66f3f6abb",
 					"name": "currency-exchange from USD to INR",
 					"originalRequest": {
 						"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
@@ -313,6 +252,72 @@
 				"header": [],
 				"body": {},
 				"description": "The curreny-conversion-service talk to the currency-exchange-service via OpenFeign client for getting the conversion factor and then currency-conversion-service calculate the final currency using the conversion factor"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] Retrieve the centralized configuration for limits-service,  based on the profile the limits-service is running in.",
+			"request": {
+				"url": "localhost:8080/v1/limits-service/configuration",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "When this request is fired the limits-service internally talk to the spring-boot-config-server and pull the configuration from central point (ie. in our case github is the central store of configuration)\nGithub central configuration store:\nhttps://github.com/gpamitranjit/spring-boot-config-server-configuration"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] Refresh the centralized configuration in single instance of this microserivce",
+			"request": {
+				"url": "localhost:8080/actuator/refresh",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "The /actuator/refresh endpoint would refresh only single instance of that perticular microservice configuration (ie. in our case limists-service microservice running on localhost:8080 server)\n\nto update the centralized configuration in all the instances perticular microservice you have to make use of spring cloud bus using below dependency in config-server as well as in microservices\n\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.cloud</groupId>\n\t\t\t<artifactId>spring-cloud-starter-bus-amqp</artifactId>\n\t\t</dependency>\n\t\t\nAnd then requesting /actuator/bus-refresh on the server on which our microservice is running (ie. in our case the request URI is http://localhost:8080/actuator/bus-refresh)"
+			},
+			"response": []
+		},
+		{
+			"name": "[spring-boot-config-server] Refresh the cetralized configuration",
+			"request": {
+				"url": "localhost:8888/actuator/refresh",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8081] Refresh the centralized configuration in single instance of this microserivce",
+			"request": {
+				"url": "localhost:8081/actuator/refresh",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "The /actuator/refresh endpoint would refresh only single instance of that perticular microservice configuration (ie. in our case limists-service microservice running on localhost:8081 server)\n\nto update the centralized configuration in all the instances perticular microservice you have to make use of spring cloud bus using below dependency in config-server as well as in microservices\n\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.cloud</groupId>\n\t\t\t<artifactId>spring-cloud-starter-bus-amqp</artifactId>\n\t\t</dependency>\n\t\t\nAnd then requesting /actuator/bus-refresh on the server on which our microservice is running (ie. in our case the request URI is http://localhost:8081/actuator/bus-refresh)"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8081] Retrieve the centralized configuration for limits-service,  based on the profile the limits-service is running in.",
+			"request": {
+				"url": "localhost:8081/v1/limits-service/configuration",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service] Refresh all the instances of this service running on diffrent ports",
+			"request": {
+				"url": "localhost:8080/actuator/bus-refresh",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
 			},
 			"response": []
 		}
