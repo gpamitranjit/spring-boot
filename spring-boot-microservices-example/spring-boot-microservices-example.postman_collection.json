@@ -1,0 +1,347 @@
+{
+	"variables": [],
+	"info": {
+		"name": "spring-boot-microservices-example",
+		"_postman_id": "011ccbfb-d576-fbef-5545-2544e119f466",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[limits-service default profile] Retrieve centralized microservice configuration of limits-service in default profile",
+			"request": {
+				"url": "localhost:8888/limits-service/default",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Retrieve centralized microservice configuration via spring-boot-config-server"
+			},
+			"response": [
+				{
+					"id": "48864c6a-30ae-47a2-a8a6-efe4047122c3",
+					"name": "Retrieve centralized microservice configuration",
+					"originalRequest": {
+						"url": "localhost:8888/limits-service/default",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 18 Apr 2020 16:41:58 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=60",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 1350,
+					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"ae48f89739ca0c2f66d2f7878de00cd08432e4fb\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"80\",\"limits-service.maximum\":\"100\"}}]}"
+				},
+				{
+					"id": "806ae6dd-06a1-4c5c-b59c-f478b39bb54c",
+					"name": "Retrieve centralized microservice configuration after making change in central configuration",
+					"originalRequest": {
+						"url": "localhost:8888/limits-service/default",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 18 Apr 2020 16:58:30 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=60",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 2451,
+					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"626e9fb720cc1e165fc5e351af82e69634d289ee\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"100\",\"limits-service.maximum\":\"150\"}}]}"
+				}
+			]
+		},
+		{
+			"name": "[limits-service dev profile] Retrieve centralized microservice configuration of limits-service in dev  profile",
+			"request": {
+				"url": "localhost:8888/limits-service/dev",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service qa profile] Retrieve centralized microservice configuration of limits-service in qa  profile",
+			"request": {
+				"url": "localhost:8888/limits-service/qa",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "currency-exchange [port:8000]  from USD to INR",
+			"request": {
+				"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "e5894aaf-8ee6-432a-b91e-b9a051b3a36e",
+					"name": "currency-exchange from USD to INR",
+					"originalRequest": {
+						"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 18 Apr 2020 20:17:00 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=60",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 621,
+					"body": "{\"id\":100,\"from\":\"USD\",\"to\":\"INR\",\"conversionMultiple\":65}"
+				}
+			]
+		},
+		{
+			"name": "[OpenFeign] currency-converter from USD to INR",
+			"request": {
+				"url": "http://localhost:8100/v1/curreny-converter-openfeign/from/USD/to/INR/quantity/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "The curreny-conversion-service talk to the currency-exchange-service via OpenFeign client for getting the conversion factor and then currency-conversion-service calculate the final currency using the conversion factor"
+			},
+			"response": []
+		},
+		{
+			"name": "[RestTemplate] currency-converter from USD to INR",
+			"request": {
+				"url": "http://localhost:8100/v1/curreny-converter/from/USD/to/INR/quantity/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "The curreny-conversion-service talk to the currency-exchange-service via RestTemplate for getting the conversion factor and then currency-conversion-service calculate the final currency using the conversion factor"
+			},
+			"response": []
+		},
+		{
+			"name": "currency-exchange [port:8001]  from USD to INR",
+			"request": {
+				"url": "localhost:8001/v1/currency-exchange/from/USD/to/INR/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "call currency-exchange-service via zuul-api-gateway, from USD to INR",
+			"request": {
+				"url": "http://localhost:8765/currency-exchange-service/v1/currency-exchange/from/USD/to/INR/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[OpenFeign] call currency-conversion-service via zuul-api-gateway, currency-converter from USD to INR",
+			"request": {
+				"url": "http://localhost:8765/currency-conversion-service/v1/curreny-converter-openfeign/from/USD/to/INR/quantity/100",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "The curreny-conversion-service talk to the currency-exchange-service via OpenFeign client for getting the conversion factor and then currency-conversion-service calculate the final currency using the conversion factor"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] Retrieve the centralized configuration for limits-service,  based on the profile the limits-service is running in.",
+			"request": {
+				"url": "localhost:8080/v1/limits-service/configuration",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "When this request is fired the limits-service internally talk to the spring-boot-config-server and pull the configuration from central point (ie. in our case github is the central store of configuration)\nGithub central configuration store:\nhttps://github.com/gpamitranjit/spring-boot-config-server-configuration"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] Refresh the centralized configuration in single instance of this microserivce",
+			"request": {
+				"url": "localhost:8080/actuator/refresh",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "The /actuator/refresh endpoint would refresh only single instance of that perticular microservice configuration (ie. in our case limists-service microservice running on localhost:8080 server)\n\nto update the centralized configuration in all the instances perticular microservice you have to make use of spring cloud bus using below dependency in config-server as well as in microservices\n\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.cloud</groupId>\n\t\t\t<artifactId>spring-cloud-starter-bus-amqp</artifactId>\n\t\t</dependency>\n\t\t\nAnd then requesting /actuator/bus-refresh on the server on which our microservice is running (ie. in our case the request URI is http://localhost:8080/actuator/bus-refresh)"
+			},
+			"response": []
+		},
+		{
+			"name": "[spring-boot-config-server] Refresh the cetralized configuration",
+			"request": {
+				"url": "localhost:8888/actuator/refresh",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8081] Refresh the centralized configuration in single instance of this microserivce",
+			"request": {
+				"url": "localhost:8081/actuator/refresh",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "The /actuator/refresh endpoint would refresh only single instance of that perticular microservice configuration (ie. in our case limists-service microservice running on localhost:8081 server)\n\nto update the centralized configuration in all the instances perticular microservice you have to make use of spring cloud bus using below dependency in config-server as well as in microservices\n\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.cloud</groupId>\n\t\t\t<artifactId>spring-cloud-starter-bus-amqp</artifactId>\n\t\t</dependency>\n\t\t\nAnd then requesting /actuator/bus-refresh on the server on which our microservice is running (ie. in our case the request URI is http://localhost:8081/actuator/bus-refresh)"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8081] Retrieve the centralized configuration for limits-service,  based on the profile the limits-service is running in.",
+			"request": {
+				"url": "localhost:8081/v1/limits-service/configuration",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service] Refresh all the instances of this service running on diffrent ports",
+			"request": {
+				"url": "localhost:8080/actuator/bus-refresh",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080] fault toleranant endpoint",
+			"request": {
+				"url": "http://localhost:8080/v1/limits-service/fault-tolarance-example",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This endpoint internally throws RuntimeException intentionally!\nOnce the RuntimeException is thrown is Hystrix take action to respond with the configured fall-back method"
+			},
+			"response": []
+		},
+		{
+			"name": "[limits-service:8080 call via zuul gateway] fault tolerant endpoint",
+			"request": {
+				"url": "http://localhost:8765/limits-service/v1/limits-service/fault-tolarance-example",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
