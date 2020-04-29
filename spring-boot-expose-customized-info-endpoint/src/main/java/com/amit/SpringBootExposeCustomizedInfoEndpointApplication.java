@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 *
 **/
 @SpringBootApplication
-public class SpringBootExposeBuildInfoApplication {
+public class SpringBootExposeCustomizedInfoEndpointApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootExposeBuildInfoApplication.class, args);
+		SpringApplication.run(SpringBootExposeCustomizedInfoEndpointApplication.class, args);
 	}
 
 }
