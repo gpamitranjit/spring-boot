@@ -4,6 +4,7 @@
         server:
           git:
             uri: git@github.com:gpamitranjit/spring-boot-config-server-configuration.git
+            search-paths: '{application}'
             ignoreLocalSshSettings: true
             strict-host-key-checking: false
             privateKey: |
