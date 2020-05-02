@@ -4,6 +4,7 @@
         server:
           git:
             uri: git@github.com:gpamitranjit/spring-boot-config-server-configuration.git
+            delete-untracked-branches: true
             force-pull: true
             search-paths: '{application}'
             ignoreLocalSshSettings: true
