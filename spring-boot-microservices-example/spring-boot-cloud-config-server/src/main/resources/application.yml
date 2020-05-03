@@ -2,6 +2,22 @@
     cloud:
       config:
         server:
+          health:            repositories:              limits-service:
+                label: master
+                name: limits-service
+                profiles: default
+              limits-service-dev:
+                label: master
+                name: limits-service
+                profiles: dev
+              limits-service-qa:
+                label: master
+                name: limits-service
+                profiles: qa
+              limits-service-preproduction:
+                label: master
+                name: limits-service
+                profiles: preproduction
           overrides:            owner: Amit
           git:
             uri: git@github.com:gpamitranjit/spring-boot-config-server-configuration.git
