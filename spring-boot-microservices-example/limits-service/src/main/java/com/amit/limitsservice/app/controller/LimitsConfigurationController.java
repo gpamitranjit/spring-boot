@@ -1,6 +1,7 @@
 package com.amit.limitsservice.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,9 @@ public class LimitsConfigurationController {
 	@Autowired
 	private LimitsConfiguration limitsConfiguration;
 	
+	@Value("${owner:Ranjit}")
+	private String owner;
+	
 	@RequestMapping(path = "/limits-service/configuration")
 	public LimitsConfiguration serveServiceConfiguration() {
 		return limitsConfiguration;
@@ -32,6 +36,11 @@ public class LimitsConfigurationController {
 
 	public LimitsConfiguration fallbackForFaultToleranceConfiguration() {
 		return new LimitsConfiguration(2, 222);
+	}
+	
+	@RequestMapping(path = "/limits-service/owner")
+	public String retrieveOwnerName() {
+		return owner;
 	}
 	
 }

@@ -2,6 +2,7 @@
     cloud:
       config:
         server:
+          overrides:            owner: Amit
           git:
             uri: git@github.com:gpamitranjit/spring-boot-config-server-configuration.git
             delete-untracked-branches: true
