@@ -24,7 +24,7 @@
 			},
 			"response": [
 				{
-					"id": "cea3ffff-582c-4b48-b02d-8f9df07a2005",
+					"id": "c9b954c0-ca9b-4d61-822f-2fd395a3a331",
 					"name": "Retrieve centralized microservice configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -73,7 +73,7 @@
 					"body": "{\"name\":\"limits-service\",\"profiles\":[\"default\"],\"label\":null,\"version\":\"ae48f89739ca0c2f66d2f7878de00cd08432e4fb\",\"state\":null,\"propertySources\":[{\"name\":\"https://github.com/gpamitranjit/spring-boot-config-server-configuration.git/limits-service.properties\",\"source\":{\"limits-service.minimum\":\"80\",\"limits-service.maximum\":\"100\"}}]}"
 				},
 				{
-					"id": "d0687c0b-a837-4fd2-8c4c-f97476e9890b",
+					"id": "dbb17727-1607-4706-9715-c528c49927dc",
 					"name": "Retrieve centralized microservice configuration after making change in central configuration",
 					"originalRequest": {
 						"url": "localhost:8888/limits-service/default",
@@ -168,7 +168,7 @@
 			},
 			"response": [
 				{
-					"id": "014d66f8-42ca-4b93-a6b4-f76b475e6231",
+					"id": "ba63b08c-793a-475e-95d2-355a92a1660a",
 					"name": "currency-exchange from USD to INR",
 					"originalRequest": {
 						"url": "localhost:8000/v1/currency-exchange/from/USD/to/INR/",
@@ -338,7 +338,7 @@
 			"name": "[limits-service] Refresh all the instances of this service running on diffrent ports",
 			"request": {
 				"url": "localhost:8080/actuator/bus-refresh",
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {},
 				"description": ""
