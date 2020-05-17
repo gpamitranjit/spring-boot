@@ -1,6 +1,9 @@
 encrypt:
   key-store:
-    location: classpath:server.jks
+    location: classpath:server_pkcs12.jks
     password: letmein
     alias: mytestkey
-    secret: changeme
+    secret: letmein
+
+#Switch-off the decryption of the encrypted values before it's being sent to the config-clients
+#spring:#  cloud:#    config:#      server:#        encrypt:#          enabled: false
