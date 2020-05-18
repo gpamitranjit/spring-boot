@@ -1,0 +1,5 @@
+eureka:
+  instance:
+    metadata-map:
+      user: amit
+      password: 123

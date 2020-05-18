@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: spring-boot-cloud-config-server      fail-fast: true
