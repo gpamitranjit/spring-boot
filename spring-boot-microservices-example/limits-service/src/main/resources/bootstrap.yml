@@ -4,3 +4,7 @@ spring:
       discovery:
         enabled: true
         service-id: spring-boot-cloud-config-server      fail-fast: true
+      retry:        initial-interval: 2000
+        max-attempts: 10
+        multiplier: 3
+        max-interval: 20000
