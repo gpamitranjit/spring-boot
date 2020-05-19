@@ -1,0 +1,10 @@
+encrypt:
+  key-store:
+    location: classpath:server_pkcs12.jks
+    password: letmein
+    alias: mytestkey
+    secret: letmein
+
+#Switch-off the decryption of the encrypted values before it's being sent to the config-clients
+#spring:#  cloud:#    config:#      server:#        encrypt:#          enabled: false
+eureka:  client:    service-url:      default-zone: http://localhost:8761/eureka
