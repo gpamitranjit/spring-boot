@@ -10,7 +10,9 @@ spring:
         max-attempts: 10
         multiplier: 3
         max-interval: 20000
-        
+      request-read-timeout: 5
+      request-connect-timeout: 5
+
 #Whenever config-client tries to check the health of it's service internally config-client tries to 
 #cache the config-server results for 5 minutes from first /health request to this config-client
 #To get the realtime data each time you can set the below property to 0
