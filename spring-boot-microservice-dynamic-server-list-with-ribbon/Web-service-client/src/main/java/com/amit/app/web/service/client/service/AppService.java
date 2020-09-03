@@ -10,7 +10,6 @@ public class AppService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	private final String EUREKA_WEB_SERVICE_NAME = "web-service";
 	private final String EUREKA_ZUUL_API_GATEWAY_NAME = "zuul-api-gateway";
 	
 	public String retrieveGreetingMessage(String userName) {

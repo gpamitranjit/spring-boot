@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.amit.app.web.service.client.service.AppService;
 
 @RestController
-@RequestMapping(path = "/web-service-client/v1.0")
+@RequestMapping(path = "/v1.0")
 public class WelcomeController {
 	
 	@Autowired
