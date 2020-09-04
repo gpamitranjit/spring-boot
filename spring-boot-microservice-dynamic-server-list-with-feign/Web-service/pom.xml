@@ -8,11 +8,11 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.amit.app.web-service.client</groupId>
-	<artifactId>web-service-client</artifactId>
+	<groupId>com.amit.app.web-service</groupId>
+	<artifactId>web-service</artifactId>
 	<version>1.0.0.RELEASE</version>
-	<name>Web-service-client</name>
-	<description>web service client</description>
+	<name>Web-service</name>
+	<description>web service</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,15 +22,15 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 		</dependency>
 
 		<dependency>

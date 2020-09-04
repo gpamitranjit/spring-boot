@@ -1,4 +1,4 @@
-package com.amit.app.web.service.client;
+package com.amit.app.web.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class WebServiceClientApplication {
+public class WebServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebServiceClientApplication.class, args);
+		SpringApplication.run(WebServiceApplication.class, args);
 	}
 
 }

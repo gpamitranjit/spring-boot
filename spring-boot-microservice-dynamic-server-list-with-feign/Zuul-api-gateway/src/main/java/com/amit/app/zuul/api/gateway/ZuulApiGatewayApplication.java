@@ -1,15 +1,17 @@
-package com.amit.app.web.service.client;
+package com.amit.app.zuul.api.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class WebServiceClientApplication {
+@EnableZuulProxy
+public class ZuulApiGatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebServiceClientApplication.class, args);
+		SpringApplication.run(ZuulApiGatewayApplication.class, args);
 	}
 
 }
