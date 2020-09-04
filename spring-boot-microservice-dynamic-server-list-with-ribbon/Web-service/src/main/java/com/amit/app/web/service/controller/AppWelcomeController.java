@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppWelcomeController {
 
 	@RequestMapping(path = "/greeting/{userName}")
-	public String greeting(@PathVariable("userName") String userName) {
+	public String greeting(@PathVariable("userName") String userName) throws InterruptedException {
 		System.out.println("userName: " + userName);
+		Thread.sleep(6000);
 		return "Welcome " + userName;
 	}
 }
