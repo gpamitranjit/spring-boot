@@ -23,10 +23,16 @@ public class CacheConfig extends CachingConfigurerSupport {
 	
 	@Bean
 	public CacheManager timeoutCacheManager() {
-		Caffeine<Object, Object> caffeine = Caffeine.newBuilder()
-				.expireAfterWrite(1, TimeUnit.MINUTES);
 		CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
-		caffeineCacheManager.setCaffeine(caffeine);
+		caffeineCacheManager.setCaffeine(caffeineCacheBuilder());
 		return caffeineCacheManager;
+	}
+
+	private Caffeine<Object, Object> caffeineCacheBuilder() {
+		Caffeine<Object, Object> caffeine = Caffeine.newBuilder()
+				.initialCapacity(100)
+				.maximumSize(500)
+				.expireAfterWrite(1, TimeUnit.MINUTES);
+		return caffeine;
 	}
 }
