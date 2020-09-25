@@ -1,5 +1,6 @@
 package com.amit.app.aspect;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,19 +39,15 @@ public class CacheAspect {
 	public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		logger.info("[CacheAspect] before calling method");
 		
-		
-		
-		MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
+		MethodSignature methodSignature = getCurrentMethod(proceedingJoinPoint);
+		MethodCacheable methodCacheableAnnotation = getAnnotation(methodSignature, MethodCacheable.class);
 		
 		Object args[] = proceedingJoinPoint.getArgs();
-		Method method = methodSignature.getMethod();
-		MethodCacheable methodCacheableAnnotation = method.getAnnotation(MethodCacheable.class);
-		
 		String cacheKeyString = methodCacheableAnnotation.key();
 		List<String> cacheKeys = getCacheKeys(cacheKeyString);
 		String[] parameterNames = methodSignature.getParameterNames();
-		
-		
+
+
 		Map<String, Integer> cacheKeyToparamPosition = mapCachekeysToParamPosition(cacheKeys, parameterNames);
 		
 		List<String> validCacheKeys = retrieveValidCacheKeys(cacheKeyToparamPosition, args);
@@ -59,18 +56,27 @@ public class CacheAspect {
 		
 		if(simpleCacheStore.containsCache(generatedCacheKey)) {
 			logger.info("[CacheAspect] cache already exist, returning cache result!");
-			return simpleCacheStore.get(generateCacheKey(validCacheKeys));
+			return simpleCacheStore.get(generatedCacheKey);
 		}
+				
+		Object returnValue = proceedingJoinPoint.proceed();
 		
 		logger.info("[CacheAspect] cache the key!");
 		simpleCacheStore.store(generatedCacheKey, new Person("some cache data"));
-		
-		logger.info("proceedingJoinPoint.getSignature().getDeclaringTypeName(): {}", proceedingJoinPoint.getSignature().getDeclaringTypeName());
-		Object returnValue = proceedingJoinPoint.proceed();
-		
+
 		logger.info("[CacheAspect] after calling method");
 		
 		return  returnValue;
+	}
+
+	private <T extends Annotation> T getAnnotation(MethodSignature methodSignature, Class<T> annotationClass) {
+		Method method = methodSignature.getMethod();
+		T methodCacheableAnnotation = (T) method.getAnnotation(annotationClass);
+		return methodCacheableAnnotation;
+	}
+
+	private MethodSignature getCurrentMethod(ProceedingJoinPoint proceedingJoinPoint) {
+		return (MethodSignature) proceedingJoinPoint.getSignature();
 	}
 
 	private List<String> retrieveValidCacheKeys(Map<String, Integer> cacheKeyToparamPosition, Object[] args) {
