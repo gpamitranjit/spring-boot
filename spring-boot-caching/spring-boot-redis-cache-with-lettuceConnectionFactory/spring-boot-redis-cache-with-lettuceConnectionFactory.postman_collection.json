@@ -1,0 +1,62 @@
+{
+	"variables": [],
+	"info": {
+		"name": "spring-boot-redis-cache-with-lettuceConnectionFactory",
+		"_postman_id": "c2e82489-34ab-9d0d-6f7f-138a6b3ca517",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new user",
+			"request": {
+				"url": "localhost:8083/rest/user/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"2\",\n\t\"name\" : \"Ranjit\",\n\t\"salary\" : \"8000\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get the user by ID",
+			"request": {
+				"url": "localhost:8083/rest/user/all/2",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update the existing user",
+			"request": {
+				"url": "http://localhost:8083/rest/user/update",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"2\",\n\t\"name\" : \"Ranjit Patil\",\n\t\"salary\" : \"10000\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
